@@ -85,9 +85,13 @@ add_library(cimgui SHARED ${IMGUI_SOURCES})
 target_link_libraries(cimgui ${IMGUI_LIBRARIES} ${IMGUI_LINK_FLAGS})
 
 
-install(FILES 
-	${CMAKE_BINARY_DIR}/glfw/src/glfw3${CMAKE_SHARED_LIBRARY_SUFFIX}
-	DESTINATION .)
+# install(FILES 
+# 	${CMAKE_BINARY_DIR}/glfw/src/glfw3${CMAKE_SHARED_LIBRARY_SUFFIX}
+# 	DESTINATION .)
+install(
+    TARGETS glfw
+    LIBRARY DESTINATION  .
+)
 install(TARGETS cimgui
     RUNTIME DESTINATION  .
     LIBRARY DESTINATION  .
